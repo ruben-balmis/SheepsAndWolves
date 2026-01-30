@@ -1,0 +1,11 @@
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\bin\Debug\net8.0\SheepsAndWolfsEngine.deps.json
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\bin\Debug\net8.0\SheepsAndWolfsEngine.dll
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\bin\Debug\net8.0\SheepsAndWolfsEngine.pdb
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.AssemblyInfoInputs.cache
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.AssemblyInfo.cs
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.csproj.CoreCompileInputs.cache
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.dll
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\refint\SheepsAndWolfsEngine.dll
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\SheepsAndWolfsEngine.pdb
+C:\Users\rubmarmol\Desktop\SheepsAndWolfs\SheepsAndWolfsEngine\obj\Debug\net8.0\ref\SheepsAndWolfsEngine.dll

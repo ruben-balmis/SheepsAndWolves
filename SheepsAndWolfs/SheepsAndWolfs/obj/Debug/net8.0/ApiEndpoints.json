@@ -1,0 +1,42 @@
+[
+  {
+    "ContainingType": "SheepsAndWolfs.Controllers.WorldController",
+    "Method": "GetWorldObjects",
+    "RelativePath": "World/objects",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SheepsAndWolfsEngine.ObjectInfo[]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SheepsAndWolfs.Controllers.WorldController",
+    "Method": "GetWorldSizes",
+    "RelativePath": "World/sizes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "SheepsAndWolfsEngine.WorldInfo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

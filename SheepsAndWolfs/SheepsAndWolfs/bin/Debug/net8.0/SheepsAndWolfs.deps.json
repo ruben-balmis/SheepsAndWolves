@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SheepsAndWolfs/1.0.0": {
+        "dependencies": {
+          "SheepsAndWolfsEngine": "1.0.0"
+        },
+        "runtime": {
+          "SheepsAndWolfs.dll": {}
+        }
+      },
+      "SheepsAndWolfsEngine/1.0.0": {
+        "runtime": {
+          "SheepsAndWolfsEngine.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SheepsAndWolfs/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SheepsAndWolfsEngine/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

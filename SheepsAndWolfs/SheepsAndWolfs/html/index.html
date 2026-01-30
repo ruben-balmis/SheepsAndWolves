@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Consultar el Mundo</title>
+    <script>
+        const port = 5057;
+        const host = `http://localhost:${port}`;
+        let intervalId = null;
+
+        const images = {
+            1: new Image(),
+            2: new Image(),
+            3: new Image(),
+            4: new Image(),
+            5: new Image(),
+            6: new Image(),
+            7: new Image()
+        };
+
+        images[1].src = 'lobo.png';
+        images[2].src = 'oveja.png';
+        images[3].src = 'roca.png';
+        images[4].src = 'agua.png';
+        images[5].src = 'cesped.png';
+        images[6].src = 'DeadSheep.png';
+        images[7].src = 'DeadWolf.png';
+
+        const objectTypeNames = {
+            0: "Ninguno",
+            1: "Lobo",
+            2: "Oveja",
+            3: "Roca",
+            4: "Agua",
+            5: "Césped",
+            6: "Oveja Muerta",
+            7: "Lobo Muerto"
+        };
+
+        async function fetchData() {
+            try {
+                const sizeResponse = await fetch(`${host}/world/sizes`);
+                const worldSize = await sizeResponse.json();
+
+                const objectsResponse = await fetch(`${host}/world/objects`);
+                const worldObjects = await objectsResponse.json();
+
+                drawGrid(worldSize.width, worldSize.height, worldObjects);
+            } catch (error) {
+                alert(error);
+                console.error(error);
+            }
+        }
+
+
+
+        function drawObject(ctx, obj, cellSize) {
+            const img = images[obj.type];
+            if (img && img.complete) {
+                ctx.drawImage(img, obj.x * cellSize, obj.y * cellSize, cellSize, cellSize);
+            } else {
+                // Fallback por si la imagen no ha cargado aún
+                ctx.fillStyle = 'gray';
+                ctx.fillRect(obj.x * cellSize, obj.y * cellSize, cellSize, cellSize);
+            }
+
+        }
+
+        function drawGrid(width, height, objects) {
+            if (!width || !height || !objects) return;
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            const cellSize = 50;
+            canvas.width = width * cellSize;
+            canvas.height = height * cellSize;
+
+            // Dibujar tablero de ajedrez
+            for (let x = 0; x < width; x++) {
+                for (let y = 0; y < height; y++) {
+                    ctx.fillStyle = (x + y) % 2 === 0 ? '#ddd' : '#999';
+                    ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+                }
+            }
+
+            // Dibujar objetos
+            for (let i = 0; i < objects.length; i++)
+                drawObject(ctx, objects[i], cellSize);
+        }
+
+        function toggleFetching() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+                console.log("Actualización detenida.");
+            } else {
+                fetchData(); // Llamar inmediatamente antes del intervalo
+                intervalId = setInterval(fetchData, 1000);
+                console.log("Actualización iniciada.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="ascii-header">
+        <pre>
+                                                                                                                                                           
+                    ,,                                                                                                     ,,                              
+         .M"""bgd `7MM                                                  ,gM""bg          `7MMF'     A     `7MF'          `7MM                              
+        ,MI    "Y   MM                                                  8MI  ,8            `MA     ,MA     ,V              MM                              
+        `MMb.       MMpMMMb.   .gP"Ya   .gP"Ya  `7MMpdMAo. ,pP"Ybd       WMp,"              VM:   ,VVM:   ,V    ,pW"Wq.    MM  `7M'   `MF' .gP"Ya  ,pP"Ybd 
+          `YMMNq.   MM    MM  ,M'   Yb ,M'   Yb   MM   `Wb 8I   `"      ,gPMN.  jM"'         MM.  M' MM.  M'   6W'   `Wb   MM    VA   ,V  ,M'   Yb 8I   `" 
+        .     `MM   MM    MM  8M"""""" 8M""""""   MM    M8 `YMMMa.     ,M.  YMp.M'           `MM A'  `MM A'    8M     M8   MM     VA ,V   8M"""""" `YMMMa. 
+        Mb     dM   MM    MM  YM.    , YM.    ,   MM   ,AP L.   I8     8Mp   ,MMp             :MM;    :MM;     YA.   ,A9   MM      VVV    YM.    , L.   I8 
+        P"Ybmmd"  .JMML  JMML. `Mbmmd'  `Mbmmd'   MMbmmd'  M9mmmP'     `YMbmm'``MMm.           VF      VF       `Ybmd9'  .JMML.     W      `Mbmmd' M9mmmP' 
+                                                  MM                                                                                                       
+                                                .JMML.                                                                                                     
+        </pre>
+    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Consultar el Mundo</h1>
+            <button onclick="toggleFetching()">Iniciar/Detener</button>
+        </div>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+</html>
