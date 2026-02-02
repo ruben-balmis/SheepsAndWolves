@@ -22,6 +22,7 @@ La aplicacion de **Sheeps&Wolves** consiste en una simulacion entre ovejas y lob
 
 ## Lógica de la IA
 Hablemos de la lógica que hay detras de la IA de las ovejas y los lobos.  
+
 Las ovejas y los lobos tienen 4 estadisticas, `Hunger`, `Thirst`, `Energy` y `Health`, todas estas tienen un valor maximo de 100 puntos, las estadisticas de `Thirst` y `Energy` funcionan igual tanto para las ovejas como los lobos, la `Thirst` se recupera bebiendo agua, si baja de 0, el animal empieza a perder vida y la `Energy` se recupera descansando, si baja de cierto nivel, se fuerza un descanso y pierde los turnos.  
 La `IA` detrás de cada animal es un sistema de votaciones para ver que acción hace cada animal, las acciones son `MOVE_UP`, `MOVE_DOWN`, `MOVE_LEFT`, `MOVE_RIGHT`, `REST`, `DRINK`, `ATTACK`, `EAT`, algunas acciones como `REST`, `DRINK`, `ATTACK`, `EAT` requieren ciertas condiciones, como estar encima del agua para beber por ejemplo. Si todas las estadisticas estan bien, todas las acciones de movimiento tendran los mismos puntos de votacion y se elegira una aleatoria. Si una de las estadisticas esta por debajo de la mitad, se calcula en que dirección está y esa direccion tendra mas votos que el resto, por lo que habrá mas posibilidades que salga esa acción, así hasta que este en el lugar donde puede realizar la acción.  
 Hablemos de cada animal.  
